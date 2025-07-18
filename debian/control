@@ -1,0 +1,12 @@
+Source: ros-jazzy-hebi-cpp-api
+Section: misc
+Priority: optional
+Maintainer: Chris Bollinger <chris@hebirobotics.com>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-jazzy-ament-cmake, ros-jazzy-ros-workspace
+Homepage: http://docs.hebi.us/tools.html#cpp-api
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-hebi-cpp-api
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-ros-workspace
+Description: A ROS 2 package providing access to the HEBI C++ API.
