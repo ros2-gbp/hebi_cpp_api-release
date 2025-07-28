@@ -1,3 +1,26 @@
+## hebi_cpp_api (kilted) - 3.13.1-2
+
+The packages in the `hebi_cpp_api` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --rosdistro kilted hebi_cpp_api` on `Mon, 28 Jul 2025 19:56:04 -0000`
+
+The `hebi_cpp_api` package was released.
+
+Version of package(s) in repository `hebi_cpp_api`:
+
+- upstream repository: https://github.com/HebiRobotics/hebi_cpp_api_ros.git
+- release repository: https://github.com/ros2-gbp/hebi_cpp_api-release.git
+- rosdistro version: `3.13.0-1`
+- old version: `3.13.1-1`
+- new version: `3.13.1-2`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## hebi_cpp_api (kilted) - 3.13.1-1
 
 The packages in the `hebi_cpp_api` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --rosdistro kilted hebi_cpp_api` on `Mon, 28 Jul 2025 19:50:29 -0000`
