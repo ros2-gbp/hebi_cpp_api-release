@@ -45,7 +45,7 @@ Group::~Group() noexcept {
     hebiGroupRelease(internal_);
 }
 
-int Group::size() const { return number_of_modules_; }
+size_t Group::size() const { return number_of_modules_; }
 
 bool Group::setCommandLifetimeMs(int32_t ms) {
   return (hebiGroupSetCommandLifetime(internal_, ms) == HebiStatusSuccess);
@@ -99,11 +99,10 @@ std::string Group::startLog(const std::string& dir) const {
     size_t len;
 
     hebiStringGetString(str, nullptr, &len);
-    char* buffer = new char[len];
-    hebiStringGetString(str, buffer, &len);
-    std::string ret(buffer, --len);
+    std::string ret(len, '\0');
+    hebiStringGetString(str, &ret[0], &len);
+    ret.pop_back(); // C API uses null character, so we drop it here.
 
-    delete[] buffer;
     hebiStringRelease(str);
 
     return ret;
@@ -118,11 +117,10 @@ std::string Group::startLog(const std::string& dir, const std::string& file) con
     size_t len;
 
     hebiStringGetString(str, nullptr, &len);
-    char* buffer = new char[len];
-    hebiStringGetString(str, buffer, &len);
-    std::string ret(buffer, --len);
+    std::string ret(len, '\0');
+    hebiStringGetString(str, &ret[0], &len);
+    ret.pop_back(); // C API uses null character, so we drop it here.
 
-    delete[] buffer;
     hebiStringRelease(str);
 
     return ret;
