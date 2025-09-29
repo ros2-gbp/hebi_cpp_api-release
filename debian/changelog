@@ -1,0 +1,180 @@
+ros-rolling-hebi-cpp-api (3.15.0-1bookworm) bookworm; urgency=high
+
+  * Update HEBI C++ API to version 3.15.0
+  * Add cartesian force/torque Vector3f members to command and feedback messages
+  * Add drivetrain status and motor hall state to feedback messages
+  * Update C API dependency to 2.22.0 to support additional feedback types listed above
+  * Contributors: Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 29 Sep 2025 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.13.1-1bookworm) bookworm; urgency=high
+
+  * Fix for unset environment variables in hebi/CMakeLists.txt
+  * Contributors: Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 28 Jul 2025 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.13.0-1bookworm) bookworm; urgency=high
+
+  * Add non-const Group and EndEffector getters to Arm class, and Group getters to EndEffector class
+  * Added Arm.setEndEffector function to allow explicitly adding an end effector to an Arm object after construction
+  * Improved joint limit objective function stability/behavior; C++ API now has additional tuning parameter to control edge behavior
+  * Added time heuristic functions for choosing waypoint times (also exposed in C++ API along with trajectory time conversion methods)
+  * Unicast addresses can be passed into the hebiLookup object in addition to broadcast interfaces
+  * Added RobotModel.getMaxSpeeds and .getMaxEfforts functions to get max speeds and efforts for DoFs
+  * Added Group.logUserState function to write a timestamped UserState event directly to the log file (can be viewed in Scope plots)
+  * Added Trajectory.getMinMaxPosition, getMaxVelocity, and getMaxAcceleration functions to get extrema of the trajectory without needing to sample
+  * Update CMake minimum version to 3.10 to avoid compatibility/deprecation warnings on more recent versions
+  * Support v1.1 of the [HEBI robot config format](https://github.com/hebirobotics/robot-config), adding command lifetime and feedback frequency parameters to the config file
+  * add enums for T-5/8 and R/T-25 actuators and accessories.  These are used with functional RobotModel construction methods as well as getting RobotModel metadata
+  * Update C API to v2.20
+  * Suppressed uninitialized member warnings
+  * Contributors: Hariharan Ravichandran, Matthew Tesch, G.V. Keerthi
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Fri, 18 Jul 2025 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.12.3-1bookworm) bookworm; urgency=high
+
+  * Fixed CMakeLists.txt to include proper C API files
+  * Contributors: Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 10 Feb 2025 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.12.2-1bookworm) bookworm; urgency=high
+
+  * Update HEBI C++ API to 3.12.2
+  * Contributors: Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Fri, 07 Feb 2025 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.10.1-1bookworm) bookworm; urgency=high
+
+  * Fix colcon build with symlink error
+  * Fix symlink for major version
+  * Contributors: David Conner, Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 03 Feb 2025 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.10.0-1bookworm) bookworm; urgency=high
+
+  * Features/Changes:
+    * add dynamics comp + doubled joint plugins
+    * add getters/setters for impedance control plugin
+    * use doubles instead of floats in arm plugins (minor change in experimental arm class)
+    * parse "user data" values as same parameter types as for plugins instead of saving as strings (minor change in experimental arm class)
+    * store absolute path for robot config file withing RobotConfig structure
+    * try to load/set default gains when creating arm from config
+    * update C API to 2.15.0 from 2.13.0
+    * provides ubuntu 20.04 compatibility again
+    * adds support for debug symbols in win X64 build
+    * lookup searches localhost by default to work with private imitation groups from Scope
+    * multiple log files per second now supported when using default file name (note -- naming convention changed from hh.mm.ss to hh-mm-ss.ms to match MATLAB API convention)
+    * prevent certain large info messages returned from modules from getting dropped
+    * added control strategy 5 to ControlStrategy enum
+    * update minimum required CMake to 3.5 to reduce cmake warnings from newer versions
+    * added helpers to optionally create Arm and MobileIO objects using an existing Lookup object
+    * access "Runtime Data" in "Extra" info packets, including number of seconds a module has been on and/or commanded. Note -- requires firmware support, and count will only include time for module since first updating to firmware with this feature.
+    * MobileIO class now has "sendLayout" and "sendLayoutBuffer" functions, allowing layout configurations to be sent to MobileIO devices
+  * Bugfixes:
+    * added const attribute for a number of getters
+    * small refactoring for readability, minor cleanup and formatting
+    * update calls for C IK functions from internally deprecated ones to equivalent new ones
+    * address a number of compiler warnings, while making warning checking more strict for GCC and clang
+    * ignore warnings given by included Eigen library
+  * Contributors: Matthew Tesch, Aditya Nair
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Fri, 30 Aug 2024 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.9.0-1bookworm) bookworm; urgency=high
+
+  * Bumped up the HEBI CPP API Version to 3.9.0 (changelogs for previous version are available at https://github.com/HebiRobotics/HEBI-Core-Cpp/releases)
+  * Initial release of HEBI API for ROS 2
+  * Contributors: Chris Bollinger, Hariharan Ravichandran
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Wed, 10 Jul 2024 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.2.0-1bookworm) bookworm; urgency=high
+
+  * Added experimental high-level "Arm API" to enable easier control of robotic arm systems
+  * Contributors: Chris Bollinger
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Fri, 03 Apr 2020 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.1.1-1bookworm) bookworm; urgency=high
+
+  * Fix incorrect behavior when getting and setting IO pin values
+  * Contributors: Matthew Tesch
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 16 Dec 2019 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (3.1.0-1bookworm) bookworm; urgency=high
+
+  * Reduce conversion needs by adding (deprecated) overloads for:
+    
+      * getJ
+      * getJacobians
+      * getFK
+      * getForwardKinematics
+      * getFrameCount
+    
+  * Fix multiple definition error
+  (from 3.0.0)
+  * Robot Model:
+    
+      * Added "input frame" type for forward kinematics operations
+      * Added end effector support (custom and parallel gripper types)
+      * Added R-series support (actuator, link, bracket, and end effector)
+      * Added options for link input + output type
+      * Support import of HRDF format 1.2.0
+    
+  * Robot Model:
+    
+      * removed "combine" functionality for addJoint and addRigidBody
+      * now only allows addition of elements which match the physical interface of the previous element
+      * changed the behavior of "end effector" frames; by default, none are returned any unless an "end effector" is specifically added
+      * Changed usages of HebiJointType, HebiFrameType, and HebiRobotModelElementType C-style enums to C++ scoped enums
+    
+  * Fixed bug when setting IO pins in commands; commands would sometimes affect other pins.
+  (from 2.2.0)
+  * Added ability to set and clear text in the experimental mobile IO API
+  * Added ability to get raw feedback from experimental mobile IO API
+  * Contributors: Matthew Tesch
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Mon, 02 Dec 2019 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (2.1.0-1bookworm) bookworm; urgency=high
+
+  * Contributors: Matthew Tesch
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Wed, 21 Aug 2019 04:00:00 -0000
+
+ros-rolling-hebi-cpp-api (2.0.2-1bookworm) bookworm; urgency=high
+
+  * Make package installable
+  * Moved the header files into an include directory
+  * Removed the Eigen folder; use ROS package instead
+  * Fixed CMake for installable package
+    
+      * Addressed Eigen dependency
+      * Installed include files and libraries correctly
+    
+  * NOTE: this does not correspond with an official 2.0.2
+    release of the upstream HEBI C++ API, because these
+    changes were all local ROS build system changes. This
+    mismatch will be resolved in v2.1.0.
+  * Contributors: Matthew Tesch
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Tue, 29 Jan 2019 05:00:00 -0000
+
+ros-rolling-hebi-cpp-api (2.0.1-1bookworm) bookworm; urgency=high
+
+  * Initial import of the HEBI C++ API v2.0.1
+    - Note: package.xml and CMakeLists.txt have been changed to be catkin
+    compliant.
+  * Addressed i386/armhf/aarch64 ros buildfarm issues.
+  * Contributors: Matthew Tesch
+
+ -- Chris Bollinger <chris@hebirobotics.com>  Wed, 19 Dec 2018 05:00:00 -0000
+
+
