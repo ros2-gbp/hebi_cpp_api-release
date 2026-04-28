@@ -104,4 +104,5 @@ tracks:
     ros_distro: rolling
     vcs_type: git
     vcs_uri: https://github.com/HebiRobotics/hebi_cpp_api_ros.git
-    version: :{auto}
+    version: 3.16.0
+    version_saved: :{auto}
